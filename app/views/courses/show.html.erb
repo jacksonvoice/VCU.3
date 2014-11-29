@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h2><%= @course.name %></br></h2>
+<% @course.sections.each do |section| %>
+	<h3><%= link_to "#{section.name}", section_path %></h3><br />
+<% end %>
 <%= link_to 'New Section', new_course_section_path(@course) %>
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>

@@ -6,3 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.create(email: "jacksonvoice@yahoo.com", password: "password", password_confirmation: "password", role: 99)
+
+Course.create(name: "Course1")
+Section.create(name: "Section1", course_id: 1)
+Video.create(name: "Video 1", section_id: 1)
