@@ -22,6 +22,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'cancancan', '~> 1.9'
 gem 'devise'
+gem 'foundation-rails'
 
 
 group :development, :test do 

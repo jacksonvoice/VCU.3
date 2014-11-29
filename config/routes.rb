@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'course#index'
+  root 'courses#index'
 
   resources :videos
 
