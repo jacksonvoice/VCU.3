@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'course#index'
+
   resources :videos
 
   resources :sections
