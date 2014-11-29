@@ -1,6 +1,6 @@
 class SectionsController < ApplicationController
   before_action :set_section, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_course, only: [:index, :new]
   # GET /sections
   # GET /sections.json
   def index
@@ -14,7 +14,7 @@ class SectionsController < ApplicationController
 
   # GET /sections/new
   def new
-    @section = Section.new
+    @section = @course.sections.build
   end
 
   # GET /sections/1/edit
@@ -67,8 +67,12 @@ class SectionsController < ApplicationController
       @section = Section.find(params[:id])
     end
 
+    def set_course
+      @course = Course.find(params[:course_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def section_params
-      params[:section]
+      params.require(:section).permit(:name)
     end
 end

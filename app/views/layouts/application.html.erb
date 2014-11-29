@@ -23,8 +23,9 @@
 		<% if alert %>
 		  <p class="alert alert-danger"><%= alert %></p>
 		<% end %>
-
+<div class="row">
     <%= yield %>
-   
+    <%= debug(params) if Rails.env.development? %>
+</div>
   </body>
 </html>

@@ -2,11 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
   root 'courses#index'
 
-  resources :videos
-
-  resources :sections
-
-  resources :courses
+ shallow do 
+  resources :courses do
+    resources :sections do
+      resources :videos
+    end
+  end
+ end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
