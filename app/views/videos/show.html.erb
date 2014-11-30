@@ -1,4 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<div id='mediaplayer'></div>
+<script type="text/javascript">
+   jwplayer('mediaplayer').setup({
+      file: "rtmp://s1z2h1gncb2o9s.cloudfront.net/cfx/st/Grenade.flv",
+      width: "720",
+      height: "480"
+   });
+</script>
+
 <%= link_to 'Edit', edit_video_path(@video) %> |
-<%= link_to 'Back', videos_path %>
+<%= link_to 'Back', video_path %>
