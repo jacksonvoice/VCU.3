@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141129050915) do
+ActiveRecord::Schema.define(version: 20141130213621) do
 
   create_table "courses", force: true do |t|
     t.datetime "created_at"
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 20141129050915) do
     t.datetime "updated_at"
     t.integer  "section_id"
     t.string   "name"
+    t.string   "domain"
+    t.string   "file_name"
   end
 
 end
