@@ -7,26 +7,29 @@
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag :defaults %>
     <%= javascript_include_tag "vendor/modernizr" %>
-	   <%= javascript_include_tag "application" %>
-     <script type='text/javascript' src='https://d2xs0ghy2kasx3.cloudfront.net/jwplayer.js'></script>
+    <%= javascript_include_tag :defaults %>
+     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
+
+     <script type='text/javascript' src='https://d2xs0ghy2kasx3.cloudfront.net/jwplayer.js'></script>
   </head>
 
   <body>
+    <%= render "layouts/navbar" %>
 
-  	<%= render "layouts/navbar" %>
-
-  	<% if notice %>
-		  <p class="alert alert-success"><%= notice %></p>
-		<% end %>
-		<% if alert %>
-		  <p class="alert alert-danger"><%= alert %></p>
-		<% end %>
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
 <div class="row">
     <%= yield %>
+    <div class="panel center large-11 large-centered columns">
     <%= debug(params) if Rails.env.development? %>
+  </div>
 </div>
   </body>
 </html>
+

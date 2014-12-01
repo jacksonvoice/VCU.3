@@ -1,0 +1,32 @@
+<% @course.sections.each do |section| %>
+	<div class="row">
+		<div class="panel radius no-side-padding large-11 large-centered columns">
+			
+			<h3 class="side-padding"><%= section.name %></h3>
+			<p class="side-padding light-grey-text">
+				<%= section.description %>
+
+			</p>
+
+			<% section.videos.each do |video| %>
+				<div class="sub-panel">
+					
+					<h5>
+						<%= link_to "#{video.name}", video_path(video), class: "grey-link" %>
+						<% if current_user && current_user.admin? %>
+							<%= link_to "Edit", edit_video_path(video), class: "float-right" %>
+						<% end %>
+					</h5>
+
+				</div>
+			<% end %>
+
+			<% if current_user && current_user.admin? %>
+				<div class="float-right">
+					<%= link_to "Add Video", new_section_video_path(section) %>|
+					<%= link_to "Edit", edit_section_path(section) %>
+					</div>
+			<% end %>
+		</div>
+	</div>
+<% end %>

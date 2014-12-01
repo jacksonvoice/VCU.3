@@ -1,0 +1,87 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+ //= require foundation_and_overrides
+
+ *= require_tree .
+ *= require foundation_and_overrides
+ */
+.class-title {
+	color: #1daaa6 !important;
+	background: transparent !important;
+} 
+
+.no-side-padding {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+
+}
+
+
+.header-panel {
+  
+	background-color: #e57156;
+	border: 1px solid #e54728;
+	border-radius: 3px;
+
+
+	h1 {
+		color: white;
+
+	}
+
+	p {
+		color: #f5ddd9;
+	}
+}
+
+.margin-bottom {
+	margin-bottom: 20px;
+}
+
+.side-padding {
+	padding-left: 20px !important;
+}
+
+.sub-panel {
+	width: 100%;
+	background-color: white;
+	padding-bottom: 0px !important;
+	height: 60px !important;
+	border-top: 1px solid #bdbdbd;
+	// border-bottom: 1px solid #bdbdbd;
+
+	h5 {
+		padding-left: 40px;
+		padding-top: 15px;
+	}
+
+}
+
+.float-right {
+	float: right;
+}
+
+.light-grey-text {
+	color: #686868 !important;
+}
+
+
+.grey-link {
+	color: #686868 !important;
+}
+
+.banner-image {
+	padding-top: 60px;
+	padding-bottom: 60px;
+}

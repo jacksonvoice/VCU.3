@@ -1,6 +1,6 @@
 class SectionsController < ApplicationController
   before_action :set_section, only: [:show, :edit, :update, :destroy]
-  before_action :set_course, only: [:index, :new]
+  before_action :set_course, only: [:index, :new, :create]
   before_action :authenticate_user!
   load_and_authorize_resource
   # GET /sections
@@ -12,6 +12,7 @@ class SectionsController < ApplicationController
   # GET /sections/1
   # GET /sections/1.json
   def show
+
   end
 
   # GET /sections/new
@@ -26,7 +27,7 @@ class SectionsController < ApplicationController
   # POST /sections
   # POST /sections.json
   def create
-    @section = Section.new(section_params)
+    @section = @course.sections.build(section_params)
 
     respond_to do |format|
       if @section.save
@@ -75,6 +76,6 @@ class SectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def section_params
-      params.require(:section).permit(:name)
+      params.require(:section).permit(:name, :description)
     end
 end
