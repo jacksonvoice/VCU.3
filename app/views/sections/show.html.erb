@@ -6,4 +6,4 @@
 <% end %>
 <%= link_to "New Video", new_section_video_path(@section) %>
 <%= link_to 'Edit', edit_section_path(@section) %> |
-<%= link_to 'Back', course_path(@section) %>
+<%= link_to 'Back', course_path(@section.course_id) %>
