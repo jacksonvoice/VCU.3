@@ -2,7 +2,8 @@
 
 <h2><%= @section.name %></h2>
 <% @section.videos.each do |video| %>
-	<%= link_to "#{video.name}", video_path %>
+	<h3><%= link_to "#{video.name}", video_path(video) %></h3><br>
 <% end %>
+<%= link_to "New Video", new_section_video_path(@section) %>
 <%= link_to 'Edit', edit_section_path(@section) %> |
 <%= link_to 'Back', course_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141130213621) do
+ActiveRecord::Schema.define(version: 20141130224722) do
 
   create_table "courses", force: true do |t|
     t.datetime "created_at"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20141130213621) do
     t.integer  "section_id"
     t.string   "name"
     t.string   "domain"
-    t.string   "file_name"
+    t.string   "f_name"
   end
 
 end

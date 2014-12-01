@@ -1,13 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <div id='mediaplayer'></div>
-<script type="text/javascript">
-   jwplayer('mediaplayer').setup({
-      file: "rtmp://s1z2h1gncb2o9s.cloudfront.net/cfx/st/Grenade.flv",
+<script type="text/javascript" data-thepath="<%= @thepath %>">
+	
+jwplayer('mediaplayer').setup({
+      file: "<%= j @thepath %>",
       width: "720",
       height: "480"
    });
+
+   
 </script>
 
+<!--  -->
+
+
+
 <%= link_to 'Edit', edit_video_path(@video) %> |
-<%= link_to 'Back', video_path %>
+<%= link_to 'Back', section_path(@video.section_id) %>
+<% if Rails.env.development? %>
+	<div>
+		<strong>Video Name:</strong> <%= @video.name %><br>
+		<strong>Domain Name:</strong> <%= @video.domain %><br>
+		<strong>Video File Name:</strong> <%= @video.f_name %><br>
+		<strong>The path from controller sent into video:</strong> <%= @thepath %>
+	</div>
+<% end %>

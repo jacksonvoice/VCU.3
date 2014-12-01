@@ -12,11 +12,13 @@ class VideosController < ApplicationController
   # GET /videos/1
   # GET /videos/1.json
   def show
+    @thepath = "rtmp://" + @video.domain + ".cloudfront.net/cfx/st/" + @video.f_name
   end
 
   # GET /videos/new
   def new
-    @video = Video.new
+    @section = Section.find(params[:section_id])
+    @video = @section.videos.build
   end
 
   # GET /videos/1/edit
@@ -26,8 +28,9 @@ class VideosController < ApplicationController
   # POST /videos
   # POST /videos.json
   def create
+    @section = Section.find(params[:section_id])
     @video = Video.new(video_params)
-
+    @video.section_id = @section.id
     respond_to do |format|
       if @video.save
         format.html { redirect_to @video, notice: 'Video was successfully created.' }
@@ -71,6 +74,6 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:name)
+      params.require(:video).permit(:name, :domain, :f_name)
     end
 end
