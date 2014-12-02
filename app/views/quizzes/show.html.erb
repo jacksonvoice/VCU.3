@@ -5,7 +5,7 @@
 <ol>
 <% @quiz.questions.each do |question| %>
 	<div class="question-panel">
-	<h3><li><%= question.content %></li></h3>
+	<h5><li><%= question.content %></li></h5>
 	<ol type="a">
 		<% question.answers.each do |answer| %>
 			<!-- <h4 class="">Answers</h4><br> -->

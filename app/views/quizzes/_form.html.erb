@@ -20,13 +20,15 @@
   <%= f.fields_for :questions do |questions| %>
 	  <%= questions.label :content, "Question" %>
 	  <%= questions.text_area :content, rows: 3  %>
-    <%= questions.check_box :_destroy %>
-    <%= questions.label :_destroy, "Remove question" %>
+    <%= questions.hidden_field :_destroy %>
+    <%= link_to "remove", "#", class: "remove-fields" %>
 
 <div class="answer-panel" >
   <h6>answers:</h6>
     <%= questions.fields_for :answers do |answers| %>
       <%= answers.text_field :content %>
+      <%= answers.check_box :_destroy %>
+      <%= answers.label :_destroy, "Remove question" %>
     <% end  %>
 </div>
   <% end %>

@@ -33,12 +33,20 @@ class QuizzesController < ApplicationController
 	end
 
 	def edit
-	
 		@quiz = Quiz.find(params[:id])
 	end
 
 	def update
-	end
+    
+    @quiz = Quiz.find(params[:id])
+      if @quiz.update_attributes(quiz_params)
+      flash[:success] = "the section has been updated"
+      redirect_to [@quiz]
+    else
+      flash[:error] = "you must enter the correct information"
+      redirect_to edit_quiz_path
+    end
+end
 
 	def destroy
 	end
