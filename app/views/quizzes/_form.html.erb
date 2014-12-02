@@ -1,23 +1,30 @@
 <%= form_for @quiz do |f| %>
 
-<% if @quiz.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@quiz.errors.count, "error") %> prohibited this quiz from being saved:</h2>
-      <ul>
-      <% @quiz.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+    <% if @quiz.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@quiz.errors.count, "error") %> prohibited this quiz from being saved:</h2>
+          <ul>
+            <% @quiz.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
   <%= f.label :name %>
   <%= f.text_field :name %>
+  <%= f.label :video_id, "Video Id (integer)" %>
+  <%= f.text_field :video_id %>
 
-  <%= f.fields_for :questions do |ff| %>
-	  <%= ff.label :content %><br>
-	  <%= ff.text_field :content  %>
+  <%= f.fields_for :question do |questions| %>
+	  <%= questions.label :content, "Question" %><br>
+	  <%= questions.text_area :content, rows: 3  %>
+
+    <%= questions.fields_for :answer do |answers| %>
+      <%= answers.label :content, "Answer" %>
+      <%= answers.text_field :conten %>
+    <% end  %>
+
   <% end %>
 
   <%= f.submit "Submit" %>

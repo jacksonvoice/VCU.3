@@ -14,7 +14,10 @@
 					<h5>
 						<%= link_to "#{video.name}", video_path(video), class: "grey-link" %>
 						<% if current_user && current_user.admin? %>
-							<%= link_to "Edit", edit_video_path(video), class: "float-right" %>
+							<div class="float-right" %>
+								<%= link_to "Edit", edit_video_path(video) %>|
+								<%= link_to "Add Quiz", new_video_quiz_path(video) %>
+							</div>
 						<% end %>
 					</h5>
 
@@ -24,7 +27,8 @@
 			<% if current_user && current_user.admin? %>
 				<div class="float-right">
 					<%= link_to "Add Video", new_section_video_path(section) %>|
-					<%= link_to "Edit", edit_section_path(section) %>
+				<!--	<%= link_to "Add Quiz", new_quiz_path %>| -->
+					<%= link_to "Edit Section", edit_section_path(section) %>
 					</div>
 			<% end %>
 		</div>

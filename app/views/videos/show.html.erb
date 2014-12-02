@@ -15,8 +15,11 @@ jwplayer('mediaplayer').setup({
 <!--  -->
 
 
+<% if current_user && current_user.admin? %>
+	<%= link_to "Add Quiz", new_quiz_path(@video) %>|
+	<%= link_to 'Edit', edit_video_path(@video) %> |
+<% end %>
 
-<%= link_to 'Edit', edit_video_path(@video) %> |
 <%= link_to 'Back', section_path(@video.section_id) %>
 <% if Rails.env.development? %>
 	<div>

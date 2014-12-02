@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   end
  end
 
+ resources :videos do
+  resources :quizzes, only: [:new, :create]
+end
+
 shallow do 
   resources :quizzes do
     resources :questions do
