@@ -1,1 +1,24 @@
-<%= @quiz.name %>
+<br>
+<div class="panel radius"> 
+<h2 class="quiz-heading"><%= @quiz.name %></h2><br>
+
+<ol>
+<% @quiz.questions.each do |question| %>
+	<div class="question-panel">
+	<h3><li><%= question.content %></li></h3>
+	<ol type="a">
+		<% question.answers.each do |answer| %>
+			<!-- <h4 class="">Answers</h4><br> -->
+			<h5 class="answer-panel"><li><%= answer.content %></li></h5>
+		
+		<% end %>
+
+	</ol>
+	</div>
+<% end %>
+</ol>
+</div>
+
+<% if current_user && current_user.admin? %> 
+<%= link_to "Edit Quiz", edit_quiz_path %>
+<% end %>

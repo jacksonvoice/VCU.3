@@ -3,5 +3,5 @@ class Quiz < ActiveRecord::Base
 	has_many :questions
 	has_many :answers, through: :questions
 
-	accepts_nested_attributes_for :questions
+	accepts_nested_attributes_for :questions, :reject_if => lambda { |a| a[:content].blank? }
 end
