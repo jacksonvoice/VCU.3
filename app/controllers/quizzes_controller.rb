@@ -12,9 +12,9 @@ class QuizzesController < ApplicationController
 	def new
 		@video = Video.find(params[:video_id])
 		@quiz = @video.build_quiz
-		5.times do
+		2.times do
 			question = @quiz.questions.build
-			4.times { question.answers.build }
+			2.times { question.answers.build }
 		end
 	end
 

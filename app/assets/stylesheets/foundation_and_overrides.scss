@@ -611,7 +611,7 @@ $button-font-color: white;
 // $include-html-form-classes: $include-html-classes;
 
 // We use this to set the base for lots of form spacing and positioning styles
- $form-spacing: rem-calc(13);
+ $form-spacing: rem-calc(15);
 
 // We use these to style the labels in different ways
 // $form-label-pointer: pointer;
@@ -620,7 +620,7 @@ $button-font-color: white;
 // $form-label-line-height: 1.5;
 // $form-label-font-color: scale-color($black, $lightness: 30%);
 // $form-label-small-transform: capitalize;
-// $form-label-bottom-margin: 0;
+ $form-label-bottom-margin: 0;
 // $input-font-family: inherit;
 // $input-font-color: rgba(0,0,0,0.75);
 // $input-font-size: rem-calc(14);

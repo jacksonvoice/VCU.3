@@ -19,19 +19,24 @@
 
   <%= f.fields_for :questions do |questions| %>
   <div class="question-panel" %>
-	  <%= questions.label :content, "Question" %>
-	  <%= questions.text_area :content, rows: 3  %>
+	  <h6>Question:</h6>
+	  <%= questions.text_area :content, rows: 2, class: "remove-margin-bottom"  %>
     <%= questions.hidden_field :_destroy %>
     <%= link_to "remove", "#", class: "remove-fields" %>
+  <%= link_to_add_question_fields "Add Answer", questions, :answers %>
 
-<div class="answer-panel" >
-  <h6>answers:</h6>
-    <%= questions.fields_for :answers do |answers| %>
-      <%= answers.text_field :content %>
-      <%= answers.check_box :_destroy %>
-      <%= answers.label :_destroy, "Remove question" %>
-    <% end  %>
-</div>
+
+
+        <div class="answer-panel" >
+          <h6>answers:</h6>
+          <%= questions.fields_for :answers do |answers| %>
+            <div>
+              <%= answers.text_field :content, class: "remove-margin-bottom" %>
+              <%= answers.hidden_field :_destroy %>
+              <%= link_to "remove", "#", class: "remove-fields" %>
+            </div>
+          <% end  %>
+        </div>
 </div>
   <% end %>
 
