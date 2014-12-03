@@ -1,0 +1,17 @@
+= image_tag "large.png", class: "banner-image"
+
+%h1 Classes
+
+- @courses.each do |course|
+  .panel.radius
+    %h3= link_to "#{course.name}", course_path(course), class: "class-title"
+    %p= course.description
+
+    - if current_user && current_user.admin?
+      = link_to 'Edit', edit_course_path(course)
+      |
+      = link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+- if current_user && current_user.admin?
+  = link_to 'Create a New Class', new_course_path, class: "button small radius"
