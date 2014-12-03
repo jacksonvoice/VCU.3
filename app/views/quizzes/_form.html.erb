@@ -16,8 +16,9 @@
   <%= f.label :name, "Quiz Label" %>
   <%= f.text_field :name %>
 
-<div class="question-panel" %>
+
   <%= f.fields_for :questions do |questions| %>
+  <div class="question-panel" %>
 	  <%= questions.label :content, "Question" %>
 	  <%= questions.text_area :content, rows: 3  %>
     <%= questions.hidden_field :_destroy %>
@@ -31,8 +32,9 @@
       <%= answers.label :_destroy, "Remove question" %>
     <% end  %>
 </div>
-  <% end %>
 </div>
+  <% end %>
+
   <%= f.submit "Submit", class: "button small radius" %>
 <% end %>
 

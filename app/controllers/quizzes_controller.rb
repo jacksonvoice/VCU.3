@@ -55,7 +55,7 @@ end
 
 
 	def quiz_params
-      params.require(:quiz).permit(:name, questions_attributes: [:id, :content, :quiz_id, answers_attributes: [:id, :content, :question_id]])
+      params.require(:quiz).permit(:name, questions_attributes: [:id, :content, :quiz_id, :_destroy, answers_attributes: [:id, :content, :question_id, :_destroy]])
   end
 
 end
