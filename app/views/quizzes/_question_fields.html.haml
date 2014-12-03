@@ -1,0 +1,13 @@
+.question-panel
+  %h6 Question:
+  = f.text_area :content, rows: 2, class: "remove-margin-bottom" 
+  = f.hidden_field :_destroy 
+  = link_to "remove", '#', class: "remove_fields"
+  |
+  
+
+  .answer-panel
+    %h6 answers:
+    = f.fields_for :answers do |builder|
+      = render "quizzes/answer_fields", f: builder 
+    = link_to_add_answer_field "add answer", f, :answers

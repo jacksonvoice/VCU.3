@@ -7,22 +7,10 @@
   = f.label :name, "Quiz Label" 
   = f.text_field :name 
 
-  = f.fields_for :questions do |questions|     
-    .nested-fields
-      .question-panel
-        %h6 Question:
-        = questions.text_area :content, rows: 2, class: "remove-margin-bottom" 
-        = questions.hidden_field :_destroy 
-        = link_to_remove_association "remove", questions
+  = f.fields_for :questions do |builder|     
+    = render "quizzes/question_fields", f: builder
 
-        .nested-fields
-          .answer-panel
-            %h6 answers:
-            = questions.fields_for :answers do |answers|
-              .remove
-                = answers.text_field :content, class: "remove-margin-bottom"
-                = link_to_remove_association("remove", answers, { wrapper_class: 'remove'})
-
+  = link_to_add_question_fields "add question", f, :questions
   = f.submit "Submit", class: "button small radius"
 
 
