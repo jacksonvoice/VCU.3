@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'cancancan', '~> 1.9'
 gem 'devise'
 gem 'foundation-rails'
+gem 'cocoon', '~> 1.2.0'
+gem 'haml'
 
 
 
