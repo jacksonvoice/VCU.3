@@ -5,8 +5,13 @@ class QuizzesController < ApplicationController
 	end
 
 	def show
-		
 		@quiz = Quiz.find(params[:id])
+		if current_user && current_user.admin?
+			render 'show_quiz'
+		else
+			render 'take_quiz'
+			@quiz = Quiz.find(params[:video_id])
+		end
 	end
 
 	def new

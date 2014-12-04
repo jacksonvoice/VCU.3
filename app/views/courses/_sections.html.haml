@@ -1,0 +1,30 @@
+- @course.sections.each do |section|
+  .row
+    .panel.radius.no-side-padding.large-11.large-centered.columns
+      %h3.side-padding.sub-heading= section.name
+      %p.side-padding.light-grey-text
+        = section.description
+
+      - section.videos.each do |video|
+        .sub-panel
+          %h5
+            = link_to "#{video.name}", video_path(video), class: "grey-link" 
+
+            - if current_user && current_user.admin?
+              .float-right
+                = link_to "Edit", edit_video_path(video)
+                |
+                = link_to "Add Quiz", new_video_quiz_path(video)
+        
+        - if !video.quiz.blank?
+          .sub-panel
+            %h5
+              = link_to "#{video.quiz.name}", video_path(video), class: "grey-link"
+              .float-right
+                = link_to "Edit Quiz", edit_quiz_path(video.quiz)
+
+      - if current_user && current_user.admin?
+        .float-right
+          = link_to "Add Video", new_section_video_path(section)
+          |
+          = link_to "Edit Section", edit_section_path(section)
