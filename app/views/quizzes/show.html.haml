@@ -1,0 +1,18 @@
+%br
+  .panel.radius
+    %h2.quiz-heading= @quiz.name
+    %br
+      %ol
+        - @quiz.questions.each do |question|
+          .question-panel
+            %h5
+              %li= question.content
+            %ol{:type => "a"}
+              - question.answers.each do |answer|
+                %h5.answer-panel
+                  %li= answer.content
+                  / - if answer.correct_answer == true
+                  /   correct answer
+                  = answer.correct_answer
+  - if current_user && current_user.admin?
+    = link_to "Edit Quiz", edit_quiz_path
