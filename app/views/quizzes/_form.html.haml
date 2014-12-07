@@ -6,6 +6,8 @@
   = f.text_field :video_id 
   = f.label :name, "Quiz Label" 
   = f.text_field :name 
+  = f.label :points, "Point Value"
+  = f.text_field :points
 
   = f.fields_for :questions do |builder|     
     = render "quizzes/question_fields", f: builder

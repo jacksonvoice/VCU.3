@@ -12,14 +12,14 @@
 
             - if current_user && current_user.admin?
               .float-right
-                = link_to "Edit", edit_video_path(video)
+                = link_to "Edit Video", edit_video_path(video)
                 |
                 = link_to "Add Quiz", new_video_quiz_path(video)
         
         - if !video.quiz.blank?
           .sub-panel
             %h5
-              = link_to "#{video.quiz.name}", video_path(video), class: "grey-link"
+              = link_to "#{video.quiz.name}", quiz_path(video.quiz, course_id: @course.id ), class: "grey-link"
               .float-right
                 = link_to "Edit Quiz", edit_quiz_path(video.quiz)
 

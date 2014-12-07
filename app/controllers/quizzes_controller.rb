@@ -5,12 +5,25 @@ class QuizzesController < ApplicationController
 	end
 
 	def show
-		@quiz = Quiz.find(params[:id])
-		if current_user && current_user.admin?
+		@course_id = params[:course_id]
+	  @min_id = params[:min_id]
+    @quiz = Quiz.find(params[:id])
+    @questions = @quiz.questions.order("id ASC")
+    
+    if current_user && current_user.admin?
 			render 'show_quiz'
-		else
-			render 'take_quiz'
-			@quiz = Quiz.find(params[:video_id])
+	  else
+		    if @min_id
+		    	if @min_id.to_i < @quiz.questions.length
+		      	@question = @questions.where("id > ?", @min_id).first
+		      	render 'take_quiz'
+			    else
+			    	redirect_to course_path(@course_id)
+			    end
+		    else
+		      @question = @questions.first
+		      render 'take_quiz'
+		    end
 		end
 	end
 
