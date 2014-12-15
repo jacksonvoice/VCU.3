@@ -1,5 +1,21 @@
 class QuizzesController < ApplicationController
 
+	
+	def submit_answer
+		@quiz = Quiz.find(params[:id])
+		@question = Question.find(params[:question_id])
+		@answer = Answer.find(params[:answer_id])
+		@course_id = params[:course_id]
+		if @answer.correct_answer == true
+			flash[:notice] = "You did it!"
+			render 'quiz_answer'
+			
+		elsif @answer.correct_answer == false
+			flash[:notice] =  "Sorry wrong answer!"
+			render 'quiz_answer'
+		end
+	end
+
 	def index
 		@quiz = Quiz.all
 	end
@@ -9,7 +25,6 @@ class QuizzesController < ApplicationController
 	  @min_id = params[:min_id]
     @quiz = Quiz.find(params[:id])
     @questions = @quiz.questions.order("id ASC")
-    
     if current_user && current_user.admin?
 			render 'show_quiz'
 	  else

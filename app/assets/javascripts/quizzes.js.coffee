@@ -11,3 +11,10 @@ jQuery ->
 		$(this).before($(this).data('fields').replace(regexp, time))
 		event.preventDefault()
 		console.log("click add")
+
+	# $(document).on 'click', '.answer_click', (event) ->
+	# 	$(this).prev('input[type=hidden]').val(1)
+	# 	event.preventDefault()
+	# 	console.log("click answer")
+
+	# 

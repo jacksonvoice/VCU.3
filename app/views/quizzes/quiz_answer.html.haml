@@ -1,0 +1,7 @@
+- @question.answers.each do |answer|
+	.sub-panel.top-padding
+		%li.padding-left= answer.content
+	
+
+
+= link_to "Next Question", quiz_path(@quiz, min_id: @question.id, course_id: @course_id)

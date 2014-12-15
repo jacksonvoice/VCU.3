@@ -24,6 +24,8 @@ shallow do
   end
 end
 
+get 'quizzes/answer/:id', to: 'quizzes#submit_answer', as: :submit_answer
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

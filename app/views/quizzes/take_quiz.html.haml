@@ -1,13 +1,11 @@
 %h1
 	=@quiz.name
 	
-.panel
+.panel.radius
 	= @question.content
 	%ol{:type => "a"}
 		- @question.answers.each do |answer|
-			.sub-panel.top-padding
-				%li.padding-left=answer.content
+			.sub-panel.top-padding.green-hover
+				%li.padding-left= link_to "#{answer.content}", submit_answer_path(@quiz, answer_id: answer.id, question_id: @question.id, course_id: @course_id)
+		
 
-= link_to "Next Question", quiz_path(@quiz, min_id: @question.id, course_id: @course_id)
-
- 
