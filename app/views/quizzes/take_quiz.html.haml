@@ -5,7 +5,12 @@
 	= @question.content
 	%ol{:type => "a"}
 		- @question.answers.each do |answer|
-			.sub-panel.top-padding.green-hover
-				%li.padding-left= link_to "#{answer.content}", submit_answer_path(@quiz, answer_id: answer.id, question_id: @question.id, course_id: @course_id)
-		
+			= link_to(submit_answer_path(@quiz, answer_id: answer.id, question_id: @question.id, course_id: @course_id)) do
+				%li.padding-left.sub-panel.grey-hover.padding-top= answer.content
 
+= @total.inspect
+%p total questions
+= @current_question.inspect
+%p current question
+= @number_correct.inspect
+%p number correct

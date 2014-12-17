@@ -1,19 +1,39 @@
 class QuizzesController < ApplicationController
-
 	
+
+	@@current_question = Array.new
+	@@current_question = []
+	@@number_correct = 0 
+
+
+
 	def submit_answer
+		@current_question = @@current_question
+		@number_correct = @@number_correct
 		@quiz = Quiz.find(params[:id])
 		@question = Question.find(params[:question_id])
 		@answer = Answer.find(params[:answer_id])
 		@course_id = params[:course_id]
-		if @answer.correct_answer == true
-			flash[:notice] = "You did it!"
-			render 'quiz_answer'
-			
-		elsif @answer.correct_answer == false
-			flash[:notice] =  "Sorry wrong answer!"
+		@total = @quiz.questions.length
+		
+		if !@@current_question.include? @question.id
+			@@current_question.push(@question.id)
+
+			if @answer.correct_answer == true
+				@@number_correct += 1
+				flash.now[:success] = "You did it!"
+				render 'quiz_answer'
+				
+			else @answer.correct_answer == false
+				flash.now[:alert] =  "Sorry wrong answer!"
+				render 'quiz_answer'
+			end
+
+		else 
+			flash[:alert] = "Sorry you already answered that question!"
 			render 'quiz_answer'
 		end
+
 	end
 
 	def index
@@ -21,10 +41,14 @@ class QuizzesController < ApplicationController
 	end
 
 	def show
+		@current_question = @@current_question
+		@number_correct = @@number_correct
 		@course_id = params[:course_id]
 	  @min_id = params[:min_id]
     @quiz = Quiz.find(params[:id])
     @questions = @quiz.questions.order("id ASC")
+    @total = @quiz.questions.length
+
     if current_user && current_user.admin?
 			render 'show_quiz'
 	  else
@@ -33,7 +57,9 @@ class QuizzesController < ApplicationController
 		      	@question = @questions.where("id > ?", @min_id).first
 		      	render 'take_quiz'
 			    else
-			    	redirect_to course_path(@course_id)
+			    	@@current_question = []
+			    	@@number_correct = 0
+			    	render 'quiz_grade'
 			    end
 		    else
 		      @question = @questions.first

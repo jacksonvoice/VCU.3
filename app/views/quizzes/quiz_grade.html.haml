@@ -1,0 +1,9 @@
+= @current_question.inspect
+%p Question ID's
+= @number_correct.inspect
+%p Number of correct answers
+
+/ - @grade = (@number_correct / @total) * 100
+%h2 You Got #{@number_correct}/#{@total} correct!
+
+= link_to "Back to Class", course_path(@course_id)
