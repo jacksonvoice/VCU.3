@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   enum role: {user: 1, admin: 99}
   before_save :set_default_role, :if => :new_record?
   has_one :profile
+  accepts_nested_attributes_for :profile
 
    def set_default_role
     self.role ||= :user

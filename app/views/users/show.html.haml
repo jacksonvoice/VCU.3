@@ -1,0 +1,13 @@
+
+.large-10.medium-9.large-centered.medium-centered.columns
+	%h2 
+		= @user.email
+		%br
+		= @profile.first_name
+		= @profile.last_name
+		%br 
+		= @profile.location
+		%br
+		= @profile.user_id
+
+= link_to "Edit", edit_profile_path(@user)

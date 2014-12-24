@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   resources :users
   
  shallow do 
+  resources :users do
+    resources :profiles
+  end
+ end  
+
+ shallow do 
   resources :courses do
     resources :sections do
       resources :videos
