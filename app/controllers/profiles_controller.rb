@@ -8,7 +8,7 @@ class ProfilesController < ApplicationController
 	end
 
 	def edit
-		# @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: 201, acl: :public_read)
+		@s3_direct_post = S3_BUCKET.presigned_post(key: "avatars/#{SecureRandom.uuid}/${filename}", success_action_status: 201, acl: :public_read)
 		@user = current_user
 		@profile = Profile.find(params[:id])
 	end
