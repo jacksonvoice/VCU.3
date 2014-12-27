@@ -24,6 +24,8 @@ gem 'cancancan', '~> 1.9'
 gem 'devise'
 gem 'foundation-rails'
 gem 'haml'
+gem 'aws-sdk'
+gem 'dotenv-rails', :groups => [:development, :test]
 gem 'rails_12factor', group: :production
 
 

@@ -1,0 +1,27 @@
+= form_for(@user, html: { class: "directUpload" }) do |f|
+  - if @user.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@user.errors.count, "error")
+        prohibited this section from being saved:
+      %ul
+        - @user.errors.full_messages.each do |message|
+          %li= message
+  
+
+ 
+  = f.fields_for :profile do |ff|
+
+    = f.label :avatar
+    = f.file_field :avatar
+
+    = ff.label :first_name
+    = ff.text_field :first_name
+
+    = ff.label :last_name
+    = ff.text_field :last_name
+
+    = ff.label :location
+    = ff.text_field :location
+    .actions
+      = f.submit

@@ -1,3 +1,4 @@
+<div class="sticky">
 <nav class="top-bar" data-topbar role="navigation">
 
   <ul class="title-area">
@@ -13,6 +14,7 @@
       <% if current_user && current_user.admin? %>
         <li><%= link_to "Quizzes", quizzes_path %></li>
         <li><%= link_to "Users", users_path %></li>
+        <li><%= image_tag("#{current_user.profile.avatar}", class: "avatar") %></li>
         <li><%= link_to "#{current_user.email}", user_path(current_user.id) %></li>
         <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
 
@@ -29,3 +31,4 @@
   </section>
 </div>
 </nav>
+</div>
