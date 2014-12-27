@@ -8,6 +8,8 @@
 User.create(email: "admin@email.com", password: "password", password_confirmation: "password", role: 99)
 User.create(email: "user@email.com",  password: "password", password_confirmation: "password", role: 1)
 
+Profile.create(user_id: 1, avatar: "https://s3-us-west-2.amazonaws.com/vcu.avatars.development/avatars/ff141616-789d-4c7e-aa5f-96b874dae50a/imgres.jpg", first_name: "Kittty", last_name: "Kat", location: "Meowtinview")
+
 
 Course.create(name: "Pedagogy Part 1", description: "In this course coaches will learn the theory and science behind teaching singing lessons.  Aside from scales and sounds, there is much more that goes into being an effective vocal coach.")
 Course.create(name: "Pedagogy Part 2", description: "Continuing with part 1 this class teaches how to use pedagogy in a lesson, to build a lesson plan, implement exercises, and choose songs in order to create effective teaching.")
