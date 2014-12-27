@@ -1,6 +1,8 @@
 
 .large-10.medium-9.large-centered.medium-centered.columns
 	%h2 
+		%img(src="#{@profile.avatar}")
+		%br
 		= @user.email
 		%br
 		= @profile.first_name
@@ -10,8 +12,8 @@
 		%br
 		= @profile.user_id
 		%br
+	%p
 		= @profile.avatar
-		%br
-		= @profile.inspect
+		
 
 = link_to "Edit", edit_profile_path(@user)
