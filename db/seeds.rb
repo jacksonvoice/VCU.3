@@ -11,9 +11,9 @@ User.create(email: "user@email.com",  password: "password", password_confirmatio
 Profile.create(user_id: 1, avatar: "https://s3-us-west-2.amazonaws.com/vcu.avatars.development/avatars/ff141616-789d-4c7e-aa5f-96b874dae50a/imgres.jpg", first_name: "Kittty", last_name: "Kat", location: "Meowtinview")
 
 
-Course.create(name: "Pedagogy Part 1", description: "In this course coaches will learn the theory and science behind teaching singing lessons.  Aside from scales and sounds, there is much more that goes into being an effective vocal coach.")
-Course.create(name: "Pedagogy Part 2", description: "Continuing with part 1 this class teaches how to use pedagogy in a lesson, to build a lesson plan, implement exercises, and choose songs in order to create effective teaching.")
-Course.create(name: "Teaching Lessons", description: "In this course coaches will learn how to interact with different types of students in order to be a great coach and successful mentor to their students.  This creates a lasting relationship that helps to retain great students for many years ensuring their continued progress.")
+Course.create(name: "Vocal Science", description: "In this course coaches will learn the theory and science behind teaching singing lessons.  Aside from scales and sounds, there is much more that goes into being an effective vocal coach.")
+Course.create(name: "Customized Solutions A", description: "Continuing with part 1 this class teaches how to use pedagogy in a lesson, to build a lesson plan, implement exercises, and choose songs in order to create effective teaching.")
+Course.create(name: "Customized Solutions B", description: "In this course coaches will learn how to interact with different types of students in order to be a great coach and successful mentor to their students.  This creates a lasting relationship that helps to retain great students for many years ensuring their continued progress.")
 
 
 Section.create(name: "Introduction to the class", course_id: 1, description: "Introduction to the class, whats coaches need to be successful as well as what will be covered throughout the course.")
