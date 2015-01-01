@@ -1,16 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<div id='mediaplayer'></div>
-<script type="text/javascript" data-thepath="<%= @thepath %>">
-	
-jwplayer('mediaplayer').setup({
-      file: "<%= j @thepath %>",
-      width: "720",
-      height: "480"
-   });
-
-   
+<div id="wistia_nrkoyhsiic" class="wistia_embed" style="width:640px;height:360px;"> </div>
+<script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js"></script>
+<script>
+wistiaEmbed = Wistia.embed("nrkoyhsiic");
+wistiaEmbed.bind("end", function () {
+  $(".continue").show();
+});
 </script>
+
+<div class="continue">
+	<% if !@video.quiz.nil? %>
+	<%= link_to "Continue", quiz_path %>
+	<% else %>
+	<%= link_to "Continue", video_path(@next) %>
+	<% end %>
+</div>
 
 <!--  -->
 

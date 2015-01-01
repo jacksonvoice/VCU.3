@@ -1,6 +1,6 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-# jQuery ->
-# 	jwplayer().onPlay(console.log("playing"));
-# 	jwplayer().onComplete(console.log("complete"))
+jQuery ->
+	$(console.log("loaded"));
+	$(".continue").hide();

@@ -12,7 +12,12 @@ class VideosController < ApplicationController
   # GET /videos/1
   # GET /videos/1.json
   def show
-    @thepath = "rtmp://" + @video.domain + ".cloudfront.net/cfx/st/" + @video.f_name
+    # @thepath = "rtmp://" + @video.domain + ".cloudfront.net/cfx/st/" + @video.f_name
+    @next = @video.next
+
+    respond_to do |format|
+    format.html
+    end
   end
 
   # GET /videos/new
