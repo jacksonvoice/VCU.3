@@ -8,6 +8,8 @@
     %h3= link_to "#{course.name}", course_path(course), class: "class-title"
     %p= course.description
 
+    = link_to 'Begin Class', course_path(course), class: "button small radius no-margin-bottom large-offset-10 begin-button"
+
     - if current_user && current_user.admin?
       = link_to 'Edit', edit_course_path(course)
       |

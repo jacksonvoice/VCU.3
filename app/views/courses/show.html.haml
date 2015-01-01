@@ -4,6 +4,7 @@
   .header-panel.margin-bottom.large-11.large-centered.columns
     %h1= @course.name
     %p= @course.description
+    = link_to "Begin Class", video_path, class: "button small radius large-offset-10"
     
 = render "courses/sections"
 

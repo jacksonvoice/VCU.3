@@ -124,6 +124,10 @@
 	padding-top: 15px;
 }
 
+.no-margin-bottom {
+	margin-bottom: 0px !important;
+}
+
 .padding-left {
 	padding-left: 20px;
 }
@@ -139,4 +143,8 @@
 .avatar {
 	height: 35px;
 	padding-top: 10px;
+}
+
+.begin-button {
+		margin-top: 0px !important;
 }
